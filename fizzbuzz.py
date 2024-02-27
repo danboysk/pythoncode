@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def is_multiple(factr, numb):
+def is_multiple(Frule, Brule, numb):
     ans = ""
  
     # This function checks if a factor (factr) is a divisor of a number.
@@ -10,23 +10,26 @@ def is_multiple(factr, numb):
     #     number: The number to be divided.
 
     #   Returns:
-    #     A string indicating "Multiple" if factr is a factor of number, otherwise "Non-Multiple".
+    #     A string indicating "Fizz", "Buzz" or "FizzBuzz" if Frule or Brule are factors of number, 
+    #     otherwise the number is returned.
  
-    remainder = numb % factr
-
-    if remainder == 0:
-        return "Multiple"
-    else:
-        return "Non-Multiple"
-
+    if (numb % Frule == 0) and (numb % Brule != 0):
+        ans = "Fizz"
+    elif (numb % Frule != 0) and (numb % Brule == 0):
+         ans = "Buzz"   
+    elif (numb % Frule == 0) and (numb % Brule == 0):
+        ans = "FizzBuzz"
+    else: 
+        ans = str(numb)
+ 
+    return ans
 
 def get_integer_input():
-  """
+  
   # Prompts the user for an integer input and handles non-integer/non-numeric input gracefully.
-
   # Returns:
   #   The entered integer value.
-  """
+
   while True:
     try:
       number = int(input("Enter an integer: "))
@@ -46,9 +49,18 @@ BuzzRule = get_integer_input()
 print("Buzz Rule (Factor):", BuzzRule)
 
 
+print("Enter the starting number from which to start testing: ")
 # Example usage
-result = is_multiple(3, 12)
-print(result)  # Output: Multiple
+Startno = get_integer_input()
+print("Starting from:", Startno)
 
-result = is_multiple(5, 12)
-print(result)  # Output: Non-Multiple
+print("Enter the number end testing: ")
+# Example usage
+Endno = get_integer_input()
+print("Starting from:", Endno)
+
+for x in range(Startno, Endno + 1):
+  result = is_multiple(FizzRule, BuzzRule, x)
+  print(result)  # Output: Multiple
+
+
