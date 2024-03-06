@@ -5,10 +5,9 @@ class Solution:
   def fizzBuzz(self, n: int) -> list[str]:
     result = []
     # ADD CODE HERE!
-    # count = 0
+    count = 1
     # while (count < n):
     for count in range (1, n + 1):
-       count = count + 1
        # print ("current count: ", count)
        if (count % 3 == 0) and (count % 5 != 0):
            result.append("Fizz")
@@ -17,7 +16,8 @@ class Solution:
        elif (count % 3 == 0) and (count % 5 == 0):
            result.append("FizzBuzz")
        else: 
-           result.append(str(n))
+           result.append(str(count))
+       count = count + 1
        # print ("Result contains: ", result)
     return result
 
